@@ -99,7 +99,7 @@ class UI {
         // Display cart item
         this.addCartItem(cartItem);
         // Show the cart
-        this.showCart();
+        // this.showCart();
       });
     });
   }

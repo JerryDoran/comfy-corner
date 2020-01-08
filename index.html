@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Comfy House</title>
+    <title>Comfy Corner</title>
     <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
@@ -23,11 +23,14 @@
     <nav class="navbar">
       <div class="navbar-center">
         <!-- <span class="nav-icon"><i class="fas fa-bars"></i></!-->
-        <img class="logo" src="/images/logo.svg" alt="store logo" />
+        <!-- <img class="logo" src="/images/logo.svg" alt="store logo" /> -->
+
+        <h2 class="logo">Comfy<span class="accent">Corner</span></h2>
         <div class="overlay">
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#products">Our Products</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="cart-btn">
@@ -37,9 +40,9 @@
       </div>
     </nav>
     <!-- HERO -->
-    <header class="hero"  id="home">
+    <header class="hero" id="home">
       <div class="banner">
-        <h1 class="banner-title">furniture collection</h1>
+        <h1 class="banner-title">heritage collection</h1>
         <button class="banner-btn">shop now</button>
       </div>
     </header>
@@ -99,6 +102,94 @@
         </div>
       </div>
     </div>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h1 class="contact-title">Contact</h1>
+        </div>
+        <form action="">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name..."
+            required
+          />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email..."
+            required
+          />
+          <label for="subject">Subject:</label>
+          <textarea name="subject" id="subject" cols="30" rows="10"></textarea>
+          <input type="submit" value="submit" />
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+      <div class="container">
+        <div class="footer-cols">
+          <ul>
+            <li>Shop & Learn</li>
+            <li>
+              <a href="#">Brands</a>
+            </li>
+            <li>
+              <a href="#">Discounts</a>
+            </li>
+
+            <li>
+              <a href="#">Apps</a>
+            </li>
+            <li>
+              <a href="#">Gift Cards</a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>Our Business</li>
+            <li>
+              <a href="#">Find a Store</a>
+            </li>
+            <li>
+              <a href="#">Today at Comfy Corner</a>
+            </li>
+            <li>
+              <a href="#">Financing</a>
+            </li>
+            <li>
+              <a href="#">Order Status</a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>About Us</li>
+            <li>
+              <a href="#">Our Leadership</a>
+            </li>
+            <li>
+              <a href="#">News</a>
+            </li>
+            <li>
+              <a href="#">Events</a>
+            </li>
+            <li>
+              <a href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        Copyright &copy; 2020 Comfy Corner
+      </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="app.js"></script>
   </body>

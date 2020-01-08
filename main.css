@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-/* --------------- Define CSS Variables ---------------- */
+/* --------------- GLOBAL CSS VARIABLES AND STYLES ---------------- */
 :root {
   --primaryColor: #f09d51;
   --mainWhite: #fff;
@@ -27,7 +27,7 @@ body {
 a {
   text-decoration: none;
 }
-/* --------------- Navbar ---------------- */
+/* --------------- NAVBAR ---------------- */
 .navbar {
   position: sticky;
   top: 0;
@@ -54,6 +54,10 @@ a {
 
 .logo {
   display: none;
+}
+
+.accent {
+  color: var(--primaryColor);
 }
 
 .menu {
@@ -180,7 +184,7 @@ a {
   color: var(--mainWhite);
 }
 
-/* --------------- Hero ---------------- */
+/* --------------- HERO ---------------- */
 .hero {
   min-height: calc(100vh - 60px);
   background: url('./images/hero-bcg.jpeg') center/cover no-repeat;
@@ -216,7 +220,7 @@ a {
   color: var(--primaryColor);
 }
 
-/* --------------- Products ---------------- */
+/* --------------- PRODUCTS ---------------- */
 .products {
   padding: 4rem 0;
 }
@@ -291,7 +295,7 @@ a {
   text-align: center;
 }
 
-/* --------------- Cart ---------------- */
+/* --------------- CART ---------------- */
 .cart-overlay {
   position: fixed;
   top: 0;
@@ -334,6 +338,89 @@ a {
 .transparentBcg {
   visibility: visible;
 }
+
+/* --------------- CONTACT SECTION ---------------- */
+.contact-title {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.contact form {
+  width: 70%;
+  margin: 1rem auto;
+}
+
+.contact form label {
+  font-size: 1.2rem;
+}
+
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primaryColor);
+  outline: none;
+}
+
+.contact form input[type='submit'] {
+  width: initial;
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  padding: 0.75rem 1.75rem;
+  text-transform: uppercase;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 650ms;
+}
+
+.contact form input[type='submit']:hover {
+  background-color: var(--mainWhite);
+  color: var(--mainBlack);
+}
+
+/* --------------- FOOTER SECTION ---------------- */
+.footer-container {
+  max-width: 1180px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+footer .footer-cols {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+  text-align: left;
+  font-size: 14px;
+  background-color: var(--mainBlack);
+  color: var(--mainWhite);
+}
+
+footer .footer-cols ul {
+  list-style: none;
+}
+
+footer .footer-cols a {
+  color: var(--mainGrey);
+  opacity: 0.5;
+  line-height: 2;
+}
+
+footer .footer-cols ul li:first-child {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: #444 solid 1px;
+  margin-bottom: 1rem;
+}
+
+footer .footer-bottom {
+  background: #333;
+  padding: 1rem;
+  color: var(--mainWhite);
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .cart {
     width: 30vw;

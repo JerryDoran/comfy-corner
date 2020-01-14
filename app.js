@@ -78,7 +78,8 @@ class UI {
       }
       button.addEventListener('click', event => {
         event.target.innerText = ' In Cart';
-        event.target.disabled = true;
+        // event.target.disabled = true;
+        button.disabled = true;
 
         // Get product from products based on the id of button clicked
         // Destructuring by creating an array using spread operator to return

@@ -4,7 +4,7 @@
       "sys": { "id": "1" },
       "fields": {
         "title": "queen panel bed",
-        "price": 10.99,
+        "price": 910.99,
         "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
       }
     },
@@ -12,7 +12,7 @@
       "sys": { "id": "2" },
       "fields": {
         "title": "king panel bed",
-        "price": 12.99,
+        "price": 1012.99,
         "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
       }
     },
@@ -20,7 +20,7 @@
       "sys": { "id": "3" },
       "fields": {
         "title": "single panel bed",
-        "price": 12.99,
+        "price": 412.99,
         "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
       }
     },
@@ -28,7 +28,7 @@
       "sys": { "id": "4" },
       "fields": {
         "title": "twin panel bed",
-        "price": 22.99,
+        "price": 822.99,
         "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
       }
     },
@@ -36,7 +36,7 @@
       "sys": { "id": "5" },
       "fields": {
         "title": "fridge",
-        "price": 88.99,
+        "price": 788.99,
         "image": { "fields": { "file": { "url": "./images/product-5.jpeg" } } }
       }
     },
@@ -44,7 +44,7 @@
       "sys": { "id": "6" },
       "fields": {
         "title": "dresser",
-        "price": 32.99,
+        "price": 399.99,
         "image": { "fields": { "file": { "url": "./images/product-6.jpeg" } } }
       }
     },
@@ -52,7 +52,7 @@
       "sys": { "id": "7" },
       "fields": {
         "title": "couch",
-        "price": 45.99,
+        "price": 545.99,
         "image": { "fields": { "file": { "url": "./images/product-7.jpeg" } } }
       }
     },
@@ -60,8 +60,40 @@
       "sys": { "id": "8" },
       "fields": {
         "title": "table",
-        "price": 33.99,
+        "price": 83.99,
         "image": { "fields": { "file": { "url": "./images/product-8.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "9" },
+      "fields": {
+        "title": "dresser",
+        "price": 229.99,
+        "image": { "fields": { "file": { "url": "./images/product-9.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "10" },
+      "fields": {
+        "title": "office",
+        "price": 900.99,
+        "image": { "fields": { "file": { "url": "./images/product-10.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "11" },
+      "fields": {
+        "title": "outdoor",
+        "price": 975.99,
+        "image": { "fields": { "file": { "url": "./images/product-11.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "12" },
+      "fields": {
+        "title": "kitchen chairs",
+        "price": 793.99,
+        "image": { "fields": { "file": { "url": "./images/product-12.jpg" } } }
       }
     }
   ]

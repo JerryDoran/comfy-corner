@@ -1,3 +1,10 @@
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: 'ex6pvsoi7pxx',
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: 'eezKJ7YKmV8B38fm8jm3UBkDpPuWsCAfxQkOdB8b8S8'
+});
+
 const cartButton = document.querySelector('.cart-btn');
 const closeCartButton = document.querySelector('.close-cart');
 const clearCartButton = document.querySelector('.clear-cart');
@@ -18,11 +25,16 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
-      let result = await fetch('products.json');
-      let data = await result.json();
-      let products = data.items;
+      let contentful = await client.getEntries({
+        content_type: 'comfyCornerProducts'
+      });
+
+      // let result = await fetch('products.json');
+      // let data = await result.json();
+
+      let products = contentful.items;
       // Mapping the products array to return data fields that mean something to us
-      products = products.map(item => {
+      products = products.map((item) => {
         // Destructuring the json file to pull out the data we want.
         const { title, price } = item.fields;
         const { id } = item.sys;
@@ -41,7 +53,7 @@ class UI {
   displayProducts(products) {
     // console.log(products);
     let result = '';
-    products.forEach(product => {
+    products.forEach((product) => {
       result += `
         <!-- Single Product -->
         <article class="product">
@@ -67,16 +79,16 @@ class UI {
     // Doing this prevents us from getting a 'Node list'
     const buttons = [...document.querySelectorAll('.bag-btn')];
     buttonsDOM = buttons;
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       let id = button.dataset.id;
-      let inCart = cart.find(item => item.id === id);
+      let inCart = cart.find((item) => item.id === id);
       // If an item is in the cart then we will let the user know and disable
       // the button
       if (inCart) {
         button.innerText = ' In Cart';
         button.disabled = true;
       }
-      button.addEventListener('click', event => {
+      button.addEventListener('click', (event) => {
         event.target.innerText = ' In Cart';
         // event.target.disabled = true;
         button.disabled = true;
@@ -107,7 +119,7 @@ class UI {
   setCartValues(cart) {
     let tempTotal = 0;
     let itemsTotal = 0;
-    cart.map(item => {
+    cart.map((item) => {
       tempTotal += item.price * item.amount;
       itemsTotal += item.amount;
     });
@@ -147,7 +159,7 @@ class UI {
   }
 
   populateCart(cart) {
-    cart.forEach(item => this.addCartItem(item));
+    cart.forEach((item) => this.addCartItem(item));
   }
 
   hideCart() {
@@ -164,7 +176,7 @@ class UI {
     // Cart functionality (remove and increase items).  Need the call back to take
     // an event arg (e) to target the specific event.  This will get us the specific element
     // targeted and we can use that class to specify functionality
-    cartContent.addEventListener('click', e => {
+    cartContent.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove-item')) {
         let removeItem = e.target;
         let id = removeItem.dataset.id;
@@ -173,7 +185,7 @@ class UI {
       } else if (e.target.classList.contains('fa-chevron-up')) {
         let addAmount = e.target;
         let id = addAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
+        let tempItem = cart.find((item) => item.id === id);
         tempItem.amount = tempItem.amount + 1;
         Storage.saveCart(cart);
         this.setCartValues(cart);
@@ -181,7 +193,7 @@ class UI {
       } else if (e.target.classList.contains('fa-chevron-down')) {
         let minusAmount = e.target;
         let id = minusAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
+        let tempItem = cart.find((item) => item.id === id);
         tempItem.amount = tempItem.amount - 1;
         if (tempItem.amount > 0) {
           Storage.saveCart(cart);
@@ -200,10 +212,10 @@ class UI {
 
   clearCart() {
     // Get id's of all items in cart
-    let cartItems = cart.map(item => item.id);
+    let cartItems = cart.map((item) => item.id);
 
     // Loop over the array of cart items and get id that is in cart to remove
-    cartItems.forEach(id => this.removeItem(id));
+    cartItems.forEach((id) => this.removeItem(id));
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
     }
@@ -211,7 +223,7 @@ class UI {
   }
 
   removeItem(id) {
-    cart = cart.filter(item => item.id !== id);
+    cart = cart.filter((item) => item.id !== id);
     this.setCartValues(cart);
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
@@ -220,7 +232,7 @@ class UI {
   }
 
   getSingleButton(id) {
-    return buttonsDOM.find(button => button.dataset.id === id);
+    return buttonsDOM.find((button) => button.dataset.id === id);
   }
 }
 
@@ -234,7 +246,7 @@ class Storage {
   // Get product information from local storage
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem('products'));
-    return products.find(product => product.id === id);
+    return products.find((product) => product.id === id);
   }
 
   // Save cart items to local storage
@@ -261,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Get all products
   products
     .getProducts()
-    .then(products => {
+    .then((products) => {
       ui.displayProducts(products);
       Storage.saveProducts(products);
     })
@@ -272,12 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // J-Query Menu Animation
-$('.menu').on('click', function() {
+$('.menu').on('click', function () {
   $(this).toggleClass('active');
   $('.overlay').toggleClass('menu-open');
 });
 
-$('.navbar a').on('click', function() {
+$('.navbar a').on('click', function () {
   $('.menu').removeClass('active');
   $('.overlay').removeClass('menu-open');
 });
